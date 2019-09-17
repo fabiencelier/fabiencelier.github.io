@@ -28,7 +28,7 @@ const messaging = firebase.messaging();
 // );
 
 messaging.getToken().then(tok => localStorage.setItem("notif-token", tok));
-messaging.onMessage(payload => console.log("message", payload));
+//messaging.onMessage(payload => console.log("message", payload));
 messaging.setBackgroundMessageHandler(payload => {
   console.log("background", payload);
   const title = payload.data.title;
