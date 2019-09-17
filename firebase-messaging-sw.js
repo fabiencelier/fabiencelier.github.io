@@ -23,9 +23,9 @@ const messaging = firebase.messaging();
 //     console.log("Permission denied!");
 //   });
 
-// messaging.usePublicVapidKey(
-//   "BHaxJ58YCs9VFQYjPPo0KzeXAeAVpCXNhbhymeblFTand362yWEmpnRWqjCXfCg01vSEL1twic4_d-6rz7YdN28"
-// );
+messaging.usePublicVapidKey(
+  "BHaxJ58YCs9VFQYjPPo0KzeXAeAVpCXNhbhymeblFTand362yWEmpnRWqjCXfCg01vSEL1twic4_d-6rz7YdN28"
+);
 
 messaging.getToken().then(tok => {
   console.log("token", tok);
