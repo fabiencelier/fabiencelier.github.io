@@ -40,6 +40,6 @@ messaging.setBackgroundMessageHandler(payload => {
 
 console.log(messaging);
 
-messaging.onMessage(payload => {
-  console.log("onMessage: ", payload);
-});
+// messaging.onMessage(payload => {
+//   console.log("onMessage: ", payload);
+// });
