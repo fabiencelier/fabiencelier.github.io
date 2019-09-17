@@ -14,14 +14,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
-messaging
-  .requestPermission()
-  .then(() => {
-    console.log("Permission granted!");
-  })
-  .catch(() => {
-    console.log("Permission denied!");
-  });
+// messaging
+//   .requestPermission()
+//   .then(() => {
+//     console.log("Permission granted!");
+//   })
+//   .catch(() => {
+//     console.log("Permission denied!");
+//   });
 
 // messaging.usePublicVapidKey(
 //   "BHaxJ58YCs9VFQYjPPo0KzeXAeAVpCXNhbhymeblFTand362yWEmpnRWqjCXfCg01vSEL1twic4_d-6rz7YdN28"
