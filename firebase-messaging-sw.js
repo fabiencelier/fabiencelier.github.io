@@ -27,7 +27,14 @@ const messaging = firebase.messaging();
 //   "BHaxJ58YCs9VFQYjPPo0KzeXAeAVpCXNhbhymeblFTand362yWEmpnRWqjCXfCg01vSEL1twic4_d-6rz7YdN28"
 // );
 
-messaging.getToken().then(tok => localStorage.setItem("notif-token", tok));
+messaging.getToken().then(tok => {
+  console.log("token", tok);
+  try {
+    localStorage.setItem("notif-token", tok);
+  } catch (error) {
+    console.log(error);
+  }
+});
 //messaging.onMessage(payload => console.log("message", payload));
 messaging.setBackgroundMessageHandler(payload => {
   console.log("background", payload);
