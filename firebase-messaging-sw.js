@@ -2,51 +2,21 @@ importScripts("https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js");
 importScripts("https://www.gstatic.com/firebasejs/6.6.1/firebase-messaging.js");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBbJMQG6PCUfD_kyHni6cZNQ1aDsKY51Hw",
-  authDomain: "outlive.firebaseapp.com",
-  databaseURL: "https://outlive.firebaseio.com",
-  projectId: "outlive",
-  storageBucket: "",
-  messagingSenderId: "734287808356",
-  appId: "1:734287808356:web:2a543963f82dfd202c9c71"
+  messagingSenderId: "734287808356"
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
-// messaging
-//   .requestPermission()
-//   .then(() => {
-//     console.log("Permission granted!");
-//   })
-//   .catch(() => {
-//     console.log("Permission denied!");
-//   });
 
-// messaging.usePublicVapidKey(
-//   "BHaxJ58YCs9VFQYjPPo0KzeXAeAVpCXNhbhymeblFTand362yWEmpnRWqjCXfCg01vSEL1twic4_d-6rz7YdN28"
-// );
-
-messaging.getToken().then(tok => {
-  console.log("token", tok);
-  try {
-    localStorage.setItem("notif-token", tok);
-  } catch (error) {
-    console.log(error);
-  }
-});
-//messaging.onMessage(payload => console.log("message", payload));
 messaging.setBackgroundMessageHandler(payload => {
-  console.log("background", payload);
   const title = payload.data.title;
   const options = {
-    body: payload.data.score
+    body: "Test"
   };
   return self.registration.showNotification(title, options);
 });
 
-console.log(messaging);
-
-// messaging.onMessage(payload => {
-//   console.log("onMessage: ", payload);
-// });
+self.addEventListener("notificationclick", function(event) {
+  console.log("click");
+});
